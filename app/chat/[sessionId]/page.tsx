@@ -1,10 +1,15 @@
+import { Metadata } from 'next';
 import ConversationView from '@/components/ConversationView';
 
-type Props = {
-  params: { sessionId: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+export const metadata: Metadata = {
+  title: 'Chat Session'
 };
 
-export default async function ChatPage({ params }: Props) {
+type PageProps = {
+  params: { sessionId: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function ChatPage({ params }: PageProps) {
   return <ConversationView sessionId={params.sessionId} />;
 }
