@@ -132,14 +132,14 @@ export default function InputArea({
                   onChange={handleInputChange}
                   onKeyDown={handleKeyDown}
                   placeholder="Share your thoughts... (Shift+Enter for new line)"
-                  className="w-full px-4 py-3 rounded-2xl glass-morphism-dark text-white placeholder-gray-400 focus:outline-none focus:ring-2 resize-none min-h-[48px] overflow-y-auto leading-relaxed"
+                  className="w-full px-4 py-3 rounded-2xl glass-morphism-dark text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring-color)] resize-none min-h-[48px] overflow-y-auto leading-relaxed"
                   style={{
-                    focusRingColor: currentParticipant.color,
+                    '--focus-ring-color': currentParticipant.color,
                     height: '48px', // Initial height
                     maxHeight: '120px', // Max height for about 5 lines
                     scrollbarWidth: 'thin',
                     scrollbarColor: `${currentParticipant.color}40 transparent`
-                  }}
+                  } as React.CSSProperties}
                 />
                 
                 {/* Focus glow effect */}
