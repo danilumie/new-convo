@@ -6,10 +6,11 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  params: { sessionId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ sessionId: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export default function ChatPage({ params }: PageProps) {
-  return <ConversationView sessionId={params.sessionId} />;
+export default async function ChatPage({ params }: PageProps) {
+  const { sessionId } = await params;
+  return <ConversationView sessionId={sessionId} />;
 }
